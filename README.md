@@ -22,14 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-    class Services::MyService
-      include ServicesBase
+```ruby
+class Services::MyService
+  include ServicesBase
 
-      def call(id)
-        # do something
-      end
-    end
-
+  def call(id)
+    # do something
+  end
+end
+```
 
 ## License
 
