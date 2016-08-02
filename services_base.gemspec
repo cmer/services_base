@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'services_base/version'
+require 'services/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "services_base"
-  spec.version       = ServicesBase::VERSION
+  spec.version       = Services::VERSION
   spec.authors       = ["Carl Mercier"]
   spec.email         = ["carl@varagesale.com"]
 
-  spec.summary       = %q{Simple Base module for implementing consistent Service Objects and Micro-Services in Ruby}
-  spec.description   = %q{Simple Base module for implementing consistent Service Objects and Micro-Services in Ruby}
+  spec.summary       = %q{Simple skeleton for implementing consistent Service Objects and Micro-Services in Ruby}
+  spec.description   = %q{Simple skeleton for implementing consistent Service Objects and Micro-Services in Ruby}
   spec.homepage      = "https://github.com/varagesale/services_base"
   spec.license       = "MIT"
 

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 class TestService
-  include ServicesBase
+  include Services::Base
 end
 
-describe ServicesBase do
+describe Services::Base do
   it 'has a version number' do
-    expect(ServicesBase::VERSION).not_to be nil
+    expect(Services::VERSION).not_to be nil
   end
 
   context ".call" do
