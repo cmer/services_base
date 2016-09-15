@@ -8,8 +8,7 @@ module Services
 
     module ClassMethods
       def call(*args, &block)
-        @instance ||= self.new
-        @instance.call *args, &block
+        self.new.call *args, &block
       end
     end
 
