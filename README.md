@@ -38,6 +38,16 @@ class Services::MyService
     return Services::Responses::Error.new(result_object, error_message: 'Something went wrong', error_code: 123)
   end
 end
+
+response = Services::MyService.call(123)
+response.is_a?(Services::Responses::Success)  # true when it's a success
+response.is_a?(Services::Responses::Error)    # true when it's an error
+response.is_a?(Services::Responses::Base)     # always true
+
+response.success?       # true/false
+response.result         # the resulting object
+response.error_code     # available when there's an error
+response.error_message  # available when there's an error
 ```
 
 ## License
