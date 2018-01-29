@@ -50,6 +50,26 @@ response.error_code     # available when there's an error
 response.error_message  # available when there's an error
 ```
 
+## Configuration
+
+When running a service asynchronously (ie: in Sidekiq or Delayed Job), it may be desirable to raise an exception instead of returning a `Services::Responses::Error` in order to retry the job at a later time. It is easy to do so:
+
+```ruby
+Services::Responses.configure do |config|
+  config.raise_exception_on_async_error = true
+end
+```
+
+When `raise_exception_on_async_error` is set to `true`, an exception will be thrown whenever a new 
+`Services::Responses::Error` is initialized during an asynchronous job.
+
+Alternatively, you can raise an exception only for a specific `Error` object:
+
+```ruby
+# will raise an exception ONLY if it's called from an async job.
+Services::Responses::Error.new(my_exception, raise_exception_on_async_error: true)
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

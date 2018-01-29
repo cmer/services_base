@@ -15,6 +15,9 @@ module Services
         !success?
       end
 
+      def self.async_environment?
+        (defined?(Sidekiq) && !!Sidekiq.server?) || (ENV["_"] || "").include?("delayed_job") || (ENV["_"] || "").include?("resque")
+      end
     end
   end
 end
