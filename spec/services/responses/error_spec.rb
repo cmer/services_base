@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Services::Responses::Error do
-  let(:obj) { Services::Responses::Error.new('result', error_message: 'message', error_code: 'code') }
+  let(:obj) { Services::Responses::Error.new('result', error_message: 'message', error_code: 'code', exception: StandardError.new) }
 
   context 'initialize' do
     it 'sets result' do
@@ -14,6 +14,10 @@ describe Services::Responses::Error do
 
     it 'sets error code' do
       expect(obj.error_code).to eq 'code'
+    end
+
+    it 'sets exception code' do
+      expect(obj.exception).to be_a(StandardError)
     end
   end
 
